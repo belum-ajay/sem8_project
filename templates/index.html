@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text to Image GAN</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #fceabb, #f8b500);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            color: #4b2e83;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffffcc;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            width: 300px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #4b2e83;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #362060;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #333;
+        }
+
+        img {
+            margin-top: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <h2>🌼 Enter Flower Description</h2>
+    <form method="POST">
+        <input type="text" name="description" placeholder="e.g., pink flower with yellow center" required>
+        <button type="submit">Generate</button>
+    </form>
+
+    {% if image_path %}
+        <h3>Generated Image:</h3>
+        <img src="{{ image_path }}" alt="Generated Image" width="100">
+    {% endif %}
+</body>
+</html>
